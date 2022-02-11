@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info: 
+  title : blog API
+  version: 1.0.0
+  description: This is a blog restFUL API
+
+servers: 
+  - url: http://localhost:5000
+
+components:
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+    servers:
+        - url: http://localhost:5000
+
+  schemas:
+    post:
+      type: object
+      properties:
+        title:
+          type: string
+        discription:
+          type: string
+        content:
+          type: string
+        aurthor:
+          type: string
+          
+    user:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+
+    comment:
+      type: object
+      properties:
+        comment:
+          type: string
+
+
+paths:
+  /posts:
+    get:
+      summary: view all posts
+      tags: [post]
+      responses:
+        200:
+          
+
+    post:
+      summary: create a new post
+
+  /posts/{id}:
+    get:
+      summary: view an individual post of given ID
+    delete:
+      summary: delete a post of given ID

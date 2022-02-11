@@ -1,0 +1,37 @@
+{
+  "name": "blog_backend",
+  "version": "1.0.0",
+  "description": "blog API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e js,mjs,json,yml --exec babel-node  src/index.js",
+    "test": "mocha --require @babel/register --timeout 10000 --exit",
+    "coverage": "nyc npm run test"
+  },
+  "author": "AMIR BUDDA SHABAN",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.16.0",
+    "swagger-ui-express": "^4.3.0",
+    "winston": "^3.5.1",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/register": "^7.17.0",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "dotenv": "^16.0.0",
+    "mocha": "^9.2.0",
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0"
+  }
+}

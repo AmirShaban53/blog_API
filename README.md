@@ -1,14 +1,14 @@
-![CircleCI](https://img.shields.io/circleci/build/github/AmirShaban53/fastfood_backend?label=circleCi&logo=circleci)
-![Coveralls](https://img.shields.io/coveralls/github/AmirShaban53/fastfood_backend)
+<!-- ![CircleCI](https://img.shields.io/circleci/build/github/AmirShaban53/fastfood_backend?label=circleCi&logo=circleci)
+![Coveralls](https://img.shields.io/coveralls/github/AmirShaban53/fastfood_backend) -->
 
-# FAST FOOD API
+# BLOG API
 
-food delivery app.
+PERN stack blog API.
 
 ## Description
 
-This is a restful API desgined to for a fast food resturant inodrer to be used in online
-orders and delivery.
+This is a restful API desgined to for a BLOG inodrer to be used in online
+to create, display and delete blog posts.
 
 ## Built With
 
@@ -20,7 +20,7 @@ orders and delivery.
 
 ### installation and setup
 
-* download project from github.com/AmirShaban53/blog_backend/
+* download project from github.com/AmirShaban53/blog_API/
 * run the following in the terminal
 ```
 npm install

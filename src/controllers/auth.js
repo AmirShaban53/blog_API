@@ -1,6 +1,7 @@
 import User from "../models/User";
 import bcrypt from 'bcrypt';
 import JWT from "jsonwebtoken";
+import logger from "../middleware/logger";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -11,12 +12,16 @@ const registerUser =async (req, res) => {
         const oldUsers = await User.findAll({where: {email: email}})
 
         if(oldUsers.length >= 1){
+            logger.error('this email already eixsts');
             return res.status(409).json('This email already exists, login instead');
         }
         else{
             bcrypt.hash(password, 10, async(error, hash)=>{
                 try {
-                    if(error){return res.status(500).json(error);}
+                    if(error){
+                        logger.error('failed to hash password');
+                        return res.status(500).json(error);
+                    }
                     else{
                         const newUser = {
                             username: username,
@@ -25,16 +30,19 @@ const registerUser =async (req, res) => {
                             role: 'USER'
                         }
                         await User.create(newUser);
+                        logger.info('new user created');
                         return res.status(201).json('new user created!');
                     }
                 } catch (error) {
+                    logger.error('failed to create user');
                     return res.status(500).json(error);
                 }
             })
         }
     } 
     catch (error) {
-        res.status(500).json({source: "failed to create new user",error: error.message})
+        logger.error('failed to create user');
+        return res.status(500).json({source: "failed to create new user",error: error.message})
     }
 }
 
@@ -45,12 +53,14 @@ const LoginUser =async (req, res) => {
         const user = await User.findOne({where: {email: email}});
 
         if(user === undefined || user === null){
-            return res.status(401).json(`the email: ${email} doesn't exist`)
+            logger.error(`the email: ${email} doesn't exist`)
+            return res.status(401).json(`auth failed`)
         }
         else{
             bcrypt.compare(password, user.password, (error, result)=>{
                 if(error){
-                    return res.status(401).json(error)
+                    logger.error(`auth failed error_1: ${error.message}`)
+                    return res.status(401).json('auth failed')
                 }
                 if(result){
                     const token = JWT.sign(
@@ -63,13 +73,16 @@ const LoginUser =async (req, res) => {
                         process.env.JWT_KEY,
                         {expiresIn: '2h'}
                     )
+                    logger.info(`user successfully signed in`);
                     return res.status(200).json({message: 'user signed in', token: token})
                 }
+                logger.error(`auth failed completely`)
                 return res.status(401).json('auth failed');
             })
         }
     } catch (error) {
-        res.status(500).json({source: "failed to login user",error: error.message})
+        logger.error(`auth failed error_2: ${error.message}`)
+        return res.status(500).json({source: "failed to login user"})
     }
 }
 

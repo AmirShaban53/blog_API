@@ -1,6 +1,7 @@
 import Post from "../models/post";
 import User from "../models/user";
 import Comment from "../models/comment";
+import logger from "../middleware/logger";
 
 const createPost =async (req, res) => {
     try {
@@ -12,33 +13,41 @@ const createPost =async (req, res) => {
             aurthor: aurthor
         }
         await Post.create(data)
-        res.status(201).json('new post created');
+        logger.info('new post created')
+        return res.status(201).json('new post created');
     } catch (error) {
-        res.status(500).json({error: error.message})
+        logger.error(`failed to create post`)
+        return res.status(500).json({error: error.message})
     }
 }
 const viewPosts =async (req, res) => {
     try {
         const posts = await Post.findAll({});
-        res.status(200).json(posts);
+        logger.info('get all posts')
+        return res.status(200).json(posts);
     } catch (error) {
-        res.status(500).json({error: error.message})
+        logger.error('failed to get posts')
+        return res.status(500).json({error: error.message})
     }
 }
 const viewPost =async (req, res) => {
     try {
         const post =await Post.findOne({where: {id: req.params.id}})
-        res.status(200).json(post);
+        logger.info(`post of given index obtained`)
+        return res.status(200).json(post);
     } catch (error) {
-        res.status(500).json({error: error.message})
+        logger.error(`failed to get post of given index`)
+        return res.status(500).json({error: error.message})
     }
 }
 const deletePost =async (req, res) => {
     try {
         await Post.destroy({where: {id : req.params.id}})
-        res.status(200).json('post deleted');
+        logger.info(`post has been deleted`)
+        return res.status(200).json('post deleted');
     } catch (error) {
-        res.status(500).json({error: error.message})
+        logger.error(`failed to delete post`)
+        return res.status(500).json({error: error.message})
     }
 }
 
@@ -51,17 +60,21 @@ const addComment =async (req, res) => {
             userId: user.id
         }
         await user.createComment(newComment)
-        res.status(201).json( 'new comment created');
+        logger.info('new comment created')
+        return res.status(201).json( 'new comment created');
     } catch (error) {
-        res.status(500).json({error: error.message})
+        logger.error('failed to create comment')
+        return res.status(500).json({error: error.message})
     }
 }
 const viewComments =async (req, res) => {
     try {
         const comments= await Comment.findAll({where: {postId: req.params.id}})
-        res.status(201).json(comments);
+        logger.info('all comments to post found!')
+        return res.status(200).json(comments);
     } catch (error) {
-        res.status(500).json({error: error.message})
+        logger.error('failed to get comments')
+        return res.status(500).json({error: error.message})
     }
 }
 

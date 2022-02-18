@@ -8,7 +8,7 @@ const logger  = createLogger({
     format: format.combine(
         format.colorize(),
         format.timestamp({format: "DD-MM-YYY HH:mm:ss"}),
-        format.printf(log=> `${log.timestamp} | [${log.level}]: ${log.message}`)
+        format.printf(log=> `${log.timestamp} | [${log.level}] : ${log.message}`)
     )
 })
 

@@ -5,8 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -e js,mjs,json,yml --exec babel-node  src/index.js",
-    "test": "mocha --require @babel/register --timeout 10000 --exit",
+    "test": "set NODE_ENV=test&& mocha --require @babel/register --timeout 10000 --exit",
     "coverage": "nyc npm run test"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ]
   },
   "author": "AMIR BUDDA SHABAN",
   "license": "ISC",

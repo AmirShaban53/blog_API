@@ -1,14 +1,11 @@
 import Sequelize from 'sequelize';
-
-// import Post from './Post';
-// import User from './User';
-// import Comment from './comment';
-
+import logger from '../middleware/logger';
 import dotenv from 'dotenv';
 dotenv.config();
 
 
-const devConfig = `postgres://${process.env.PG_USERNAME}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`
+const devConfig = `postgres://${process.env.PG_USERNAME}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DEV_DATABASE}`
+const testConfig = `postgres://${process.env.PG_USERNAME}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_TEST_DATABASE}`
 
 
 const config = {
@@ -25,15 +22,18 @@ const pool = {
     acquire: 3000,
     idle: 1000
 }
-// const sequelize = new Sequelize(devConfig, {pool: pool});
-// sequelize.authenticate();
-// const pool = new pg.Pool(config);
 let sequelize;
 const dbConnect = async () => {
     try {
-        sequelize = new Sequelize(devConfig, {pool: pool});
+        if (process.env.NODE_ENV === 'test') {
+            sequelize = new Sequelize(testConfig, {pool: pool, logging: false});
+            logger.info('connected to test database');
+        }
+        else{
+            sequelize = new Sequelize(devConfig, {pool: pool});
+            logger.info('connected to dev database');
+        }
         await sequelize.authenticate();
-        console.log('connected to the database');
         sequelize.sync({});
         
     } catch (error) {

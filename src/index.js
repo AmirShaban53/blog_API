@@ -30,6 +30,6 @@ app.use('/auth', auth);
 
 
 
-app.listen(PORT, ()=> {logger.info(`blog API now live at: http://localhost.${PORT}`)});
+app.listen(PORT, ()=> {logger.info(`blog API now live at: http://localhost:${PORT}`)});
 
 export default app;

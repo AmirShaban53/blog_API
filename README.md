@@ -73,7 +73,7 @@ npm run coverage
 
 
 ## Credit
-created by Amir Budda Shaban
+created by Shaban
 
 
 

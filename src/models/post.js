@@ -13,17 +13,20 @@ const Post = sequelize.define('post',{
         type: Sequelize.STRING,
         allowNull: false
     },
-    discription:{
+    description:{
         type: Sequelize.STRING
     },
-    content:{
+    image_URL:{
         type: Sequelize.STRING,
         allowNull: false
     },
-    aurthor: {type: Sequelize.STRING,
+    content:{
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    author: {type: Sequelize.STRING,
         allowNull: false}
 })
 
-// // Post.hasMany(Comment);
 
 export default Post;

@@ -469,3 +469,67 @@ notNull Violation: post.aurthor cannot be null
 12-02-22Y 22:31:20 | [[31merror[39m] : failed to delete post
 12-02-22Y 22:31:20 | [[31merror[39m] : failed to create comment
 12-02-22Y 22:31:20 | [[31merror[39m] : failed to get comments
+23-02-22Y 10:11:48 | [[31merror[39m] : failed to create post
+23-02-22Y 10:12:24 | [[31merror[39m] : failed to create post
+23-02-22Y 10:13:41 | [[31merror[39m] : failed to create post
+24-02-22Y 14:43:54 | [[31merror[39m] : failed to create post
+24-02-22Y 21:34:54 | [[31merror[39m] : failed to get comments
+24-02-22Y 22:07:10 | [[31merror[39m] : failed to create comment
+24-02-22Y 22:08:28 | [[31merror[39m] : failed to create comment
+24-02-22Y 22:12:59 | [[31merror[39m] : failed to create comment
+24-02-22Y 22:16:14 | [[31merror[39m] : failed to create comment
+24-02-22Y 22:16:54 | [[31merror[39m] : failed to create comment
+25-02-22Y 07:22:43 | [[31merror[39m] : failed to get posts
+25-02-22Y 07:29:42 | [[31merror[39m] : failed to create post
+25-02-22Y 07:29:48 | [[31merror[39m] : failed to create post
+25-02-22Y 07:29:55 | [[31merror[39m] : failed to create post
+25-02-22Y 07:29:59 | [[31merror[39m] : failed to create post
+25-02-22Y 07:52:19 | [[31merror[39m] : failed to get post of given index
+25-02-22Y 07:52:40 | [[31merror[39m] : failed to get post of given index
+25-02-22Y 22:29:52 | [[31merror[39m] : the email:  doesn't exist
+04-04-22Y 10:10:43 | [[31merror[39m] : failed to get post of given index
+04-04-22Y 10:10:47 | [[31merror[39m] : failed to get post of given index
+05-04-22Y 00:05:52 | [[31merror[39m] : auth failed completely
+07-04-22Y 23:10:22 | [[31merror[39m] : failed to create user
+14-04-22Y 06:15:15 | [[31merror[39m] : failed to create post
+15-04-22Y 08:35:55 | [[31merror[39m] : auth failed completely
+15-04-22Y 08:36:00 | [[31merror[39m] : auth failed completely
+16-04-22Y 09:37:54 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 09:37:59 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 09:41:26 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 09:41:27 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 09:41:47 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 10:07:27 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 10:10:02 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 10:14:26 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 10:19:13 | [[31merror[39m] : failed to create post
+16-04-22Y 10:19:18 | [[31merror[39m] : failed to create post
+16-04-22Y 10:19:28 | [[31merror[39m] : failed to create post
+16-04-22Y 10:23:35 | [[31merror[39m] : failed to create post
+16-04-22Y 10:23:54 | [[31merror[39m] : failed to create post
+16-04-22Y 10:25:40 | [[31merror[39m] : failed to create post
+16-04-22Y 10:31:24 | [[31merror[39m] : failed to create post
+16-04-22Y 11:43:43 | [[31merror[39m] : failed to create user
+16-04-22Y 11:43:46 | [[31merror[39m] : failed to create user
+16-04-22Y 11:43:52 | [[31merror[39m] : failed to create user
+16-04-22Y 11:43:54 | [[31merror[39m] : failed to create user
+16-04-22Y 11:44:11 | [[31merror[39m] : failed to create user
+16-04-22Y 11:44:20 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 11:44:24 | [[31merror[39m] : failed to create user
+16-04-22Y 11:44:29 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 11:45:49 | [[31merror[39m] : failed to create user
+16-04-22Y 11:45:52 | [[31merror[39m] : failed to create user
+16-04-22Y 11:45:55 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 11:45:58 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 11:46:03 | [[31merror[39m] : failed to create user
+16-04-22Y 11:46:07 | [[31merror[39m] : failed to create user
+16-04-22Y 11:47:12 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 11:54:04 | [[31merror[39m] : auth failed error_2: WHERE parameter "email" has invalid "undefined" value
+16-04-22Y 11:54:08 | [[31merror[39m] : failed to create user
+17-04-22Y 02:04:36 | [[31merror[39m] : auth failed completely
+17-04-22Y 02:04:44 | [[31merror[39m] : auth failed completely
+17-04-22Y 02:08:55 | [[31merror[39m] : the email: admin@gamil.com doesn't exist
+17-04-22Y 02:09:05 | [[31merror[39m] : the email: admin@gamil.com doesn't exist
+17-04-22Y 02:11:39 | [[31merror[39m] : auth failed completely
+18-04-22Y 06:38:50 | [[31merror[39m] : failed to create post
+18-04-22Y 16:38:32 | [[31merror[39m] : failed to create post

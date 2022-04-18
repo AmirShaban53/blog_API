@@ -1,16 +1,18 @@
 import Post from "../models/post";
-import User from "../models/user";
 import Comment from "../models/comment";
 import logger from "../middleware/logger";
 
 const createPost =async (req, res) => {
     try {
-        const {title, discription, content, aurthor} = req.body;
+        const image = req.file;
+        const {title, description, content, author} = req.body;
         const data = {
             title: title, 
-            discription: discription, 
+            description: description, 
             content: content, 
-            aurthor: aurthor
+            author: author,
+            image_URL: image.path
+
         }
         await Post.create(data)
         logger.info('new post created')
@@ -53,13 +55,12 @@ const deletePost =async (req, res) => {
 
 const addComment =async (req, res) => {
     try {
-        const user =await  User.findOne({where: {id: req.userData.id}});
         const newComment = {
             comment: req.body.comment,
-            postId: req.params.id, 
-            userId: user.id
+            name: req.body.name,
+            postId: req.params.id,
         }
-        await user.createComment(newComment)
+        await Comment.create(newComment);
         logger.info('new comment created')
         return res.status(201).json( 'new comment created');
     } catch (error) {

@@ -28,7 +28,7 @@ const registerUser =async (req, res) => {
                             email: email,
                             password: hash,
                             role: 'USER'
-                        }
+                        } 
                         await User.create(newUser);
                         logger.info('new user created');
                         return res.status(201).json('new user created!');

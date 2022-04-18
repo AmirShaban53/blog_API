@@ -2,7 +2,6 @@ import sequelize from ".";
 import Sequelize from "sequelize";
 
 import Post from "./post";
-import User from "./user";
 
 const Comment = sequelize.define('comment',{
     id:{
@@ -14,14 +13,18 @@ const Comment = sequelize.define('comment',{
     comment:{
         type: Sequelize.STRING,
         allowNull: false
+    },
+    name:{
+        type: Sequelize.STRING,
+        allowNull: false
     }
 })
 
-Post.hasMany(Comment);
+Post.hasMany(Comment, {onDelete: 'cascade'});
 Comment.belongsTo(Post);
 
-User.hasMany(Comment);
-Comment.belongsTo(User);
-// // Comment.belongsTo(User);
+// User.hasMany(Comment);
+// Comment.belongsTo(User);
+// Comment.belongsTo(User);
 
 export default Comment;

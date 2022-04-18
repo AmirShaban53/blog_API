@@ -20,7 +20,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(express.json());
 app.use(cors());
-
+app.use('/uploads', express.static('uploads'))
 app.get('/', (req, res)=> {res.json('welcome to the blog API.')})
 
 

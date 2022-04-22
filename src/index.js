@@ -4,6 +4,7 @@ import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs';
 
+import { cloudinaryConfig } from './config/cloudinaryConfig.js';
 import posts from './routes/posts.js';
 import auth from './routes/auth.js';
 
@@ -20,6 +21,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(express.json());
 app.use(cors());
+app.use('*', cloudinaryConfig);
 app.use('/uploads', express.static('uploads'))
 app.get('/', (req, res)=> {res.json('welcome to the blog API.')})
 

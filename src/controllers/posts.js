@@ -1,25 +1,30 @@
 import Post from "../models/post";
 import Comment from "../models/comment";
 import logger from "../middleware/logger";
+import convertor from "../middleware/imageConvertor";
+import { uploader } from "../config/cloudinaryConfig";
 
 const createPost =async (req, res) => {
     try {
-        const image = req.file;
+        const file =await convertor(req);
+        const image = await uploader.upload(file);
         const {title, description, content, author} = req.body;
         const data = {
             title: title, 
-            description: description, 
-            content: content, 
             author: author,
-            image_URL: image.path
-
+            content: content,
+            description: description, 
+            image_URL: image.secure_url,
+            image_ID: image.public_id,
         }
         await Post.create(data)
         logger.info('new post created')
         return res.status(201).json('new post created');
-    } catch (error) {
-        logger.error(`failed to create post`)
-        return res.status(500).json({error: error.message})
+        
+    } 
+    catch (error) {
+        logger.error(`failed to create post ${error}`)
+        return res.status(500).json({error: error})
     }
 }
 const viewPosts =async (req, res) => {
@@ -44,6 +49,8 @@ const viewPost =async (req, res) => {
 }
 const deletePost =async (req, res) => {
     try {
+        const post = await Post.findOne({where: {id: req.params.id}})
+        if(post.image_ID){await uploader.destroy(post.image_ID);}
         await Post.destroy({where: {id : req.params.id}})
         logger.info(`post has been deleted`)
         return res.status(200).json('post deleted');
@@ -53,12 +60,12 @@ const deletePost =async (req, res) => {
     }
 }
 
-const addComment =async (req, res) => {
+const addComment = async(req, res) => {
     try {
         const newComment = {
-            comment: req.body.comment,
             name: req.body.name,
             postId: req.params.id,
+            comment: req.body.comment,
         }
         await Comment.create(newComment);
         logger.info('new comment created')

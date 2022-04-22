@@ -20,6 +20,10 @@ const Post = sequelize.define('post',{
         type: Sequelize.STRING,
         allowNull: false
     },
+    image_ID:{
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     content:{
         type: Sequelize.TEXT,
         allowNull: false

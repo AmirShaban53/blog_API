@@ -533,3 +533,27 @@ notNull Violation: post.aurthor cannot be null
 17-04-22Y 02:11:39 | [[31merror[39m] : auth failed completely
 18-04-22Y 06:38:50 | [[31merror[39m] : failed to create post
 18-04-22Y 16:38:32 | [[31merror[39m] : failed to create post
+20-04-22Y 08:36:58 | [[31merror[39m] : failed to create post
+22-04-22Y 23:55:26 | [[31merror[39m] : failed to create post
+22-04-22Y 23:56:07 | [[31merror[39m] : failed to create post
+22-04-22Y 23:57:07 | [[31merror[39m] : failed to create post Must supply api_key
+22-04-22Y 23:58:34 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:00:08 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:00:57 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:02:01 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:03:24 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:03:31 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:05:04 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:06:22 | [[31merror[39m] : failed to create post ReferenceError: image is not defined
+23-04-22Y 00:08:32 | [[31merror[39m] : failed to create post ReferenceError: image is not defined
+23-04-22Y 00:09:30 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:09:50 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:13:59 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:42:25 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:42:59 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:43:25 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:45:07 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:46:50 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:46:52 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:46:54 | [[31merror[39m] : failed to create post Must supply api_key
+23-04-22Y 00:52:05 | [[31merror[39m] : failed to create post [object Object]

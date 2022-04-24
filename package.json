@@ -11,8 +11,8 @@
     "build-babel": "babel -d ./build ./src -s",
     "clean": "rm -rf build && mkdir build",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/index.js",
-    "dev-start": "nodemon -e js,mjs,json,yml --exec babel-node  ./src/index.js",
+    "start": "npm run build && node ./build/index",
+    "dev-start": "nodemon -e js,mjs,json,yml --exec babel-node  ./src/index",
     "test": "set NODE_ENV=test&& mocha --require @babel/register --timeout 10000 --exit",
     "coverage": "nyc npm run test"
   },

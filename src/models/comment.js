@@ -1,8 +1,6 @@
 import sequelize from ".";
 import Sequelize from "sequelize";
-
 import Post from "./post";
-
 
 const Comment = sequelize.define('comment',{
     id:{

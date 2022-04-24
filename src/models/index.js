@@ -3,19 +3,15 @@ import logger from '../middleware/logger';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
-
 const devConfig = `postgres://${process.env.PG_USERNAME}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DEV_DATABASE}`
 const testConfig = `postgres://${process.env.PG_USERNAME}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_TEST_DATABASE}`
-
-
 const config = process.env.DATABASE_URL
 
 const pool = {
-    max: 5,
     min: 0,
-    acquire: 3000,
-    idle: 1000
+    max: 5,
+    idle: 1000,
+    acquire: 3000
 }
 const ssl = {
     require: true,
@@ -44,9 +40,7 @@ const dbConnect = async () => {
         
     } catch (error) {
         console.log(error.message);
-    
     }
-
 }
 dbConnect();
 

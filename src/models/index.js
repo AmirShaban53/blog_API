@@ -8,13 +8,7 @@ const devConfig = `postgres://${process.env.PG_USERNAME}:${process.env.PG_PASSWO
 const testConfig = `postgres://${process.env.PG_USERNAME}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_TEST_DATABASE}`
 
 
-const config = {
-    user: process.env.PG_USERNAME,
-    password: process.env.PG_PASSWORD,
-    host: process.env.PG_HOST,
-    port: process.env.PG_PORT,
-    database: process.env.PG_DATABASE
-}
+const config = process.env.DATABASE_URL
 
 const pool = {
     max: 5,
@@ -28,6 +22,10 @@ const dbConnect = async () => {
         if (process.env.NODE_ENV === 'test') {
             sequelize = new Sequelize(testConfig, {pool: pool, logging: false});
             logger.info('connected to test database');
+        }
+        if(process.env.NODE_ENV === 'production'){
+            sequelize = new Sequelize(config, {pool: pool});
+            logger.info('connected to production database');
         }
         else{
             sequelize = new Sequelize(devConfig, {pool: pool});

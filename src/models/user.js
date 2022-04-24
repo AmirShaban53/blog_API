@@ -25,7 +25,4 @@ const User = sequelize.define('user',{
     }
 }, {timestamps: false});
 
-// // User.hasMany(Comment);
-User.sync();
-
 export default User;

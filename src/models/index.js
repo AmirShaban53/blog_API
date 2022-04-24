@@ -16,6 +16,10 @@ const pool = {
     acquire: 3000,
     idle: 1000
 }
+const ssl = {
+    require: true,
+    rejectUnauthorized: false
+}
 let sequelize;
 const dbConnect = async () => {
     try {
@@ -24,7 +28,10 @@ const dbConnect = async () => {
             logger.info('connected to test database');
         }
         if(process.env.NODE_ENV === 'production'){
-            sequelize = new Sequelize(config, {pool: pool});
+            sequelize = new Sequelize(config, {
+                pool: pool,
+                dialectOptions: {ssl: {rejectUnauthorized: false}}
+            });
             logger.info('connected to production database');
         }
         else{

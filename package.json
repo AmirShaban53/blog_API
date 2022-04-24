@@ -4,8 +4,8 @@
   "description": "blog API",
   "main": "index.js",
   "engines": {
-    "node": "16.13.1",
-    "npm": "8.1.2"
+    "node": "^16.13.1",
+    "npm": "^8.1.2"
   },
   "scripts": {
     "build-babel": "babel -d ./build ./src -s",

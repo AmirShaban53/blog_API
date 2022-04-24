@@ -4,15 +4,16 @@
   "description": "blog API",
   "main": "index.js",
   "engines": {
-    "node": "^16.13.1",
-    "npm": "^8.1.2"
+    "node": "16.13.1",
+    "npm": "8.1.2"
   },
   "scripts": {
     "build-babel": "babel -d ./build ./src -s",
     "clean": "rm -rf build && mkdir build",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/index",
-    "dev-start": "nodemon -e js,mjs,json,yml --exec babel-node  ./src/index",
+    "start": "npm run build && node ./build/index.js",
+    "dstart": "babel-node ./src/index.js",
+    "dev": "nodemon -e js,mjs,json,yml --exec npm run dstart",
     "test": "set NODE_ENV=test&& mocha --require @babel/register --timeout 10000 --exit",
     "coverage": "nyc npm run test"
   },
@@ -26,16 +27,10 @@
   "author": "AMIR BUDDA SHABAN",
   "license": "ISC",
   "dependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.2",
-    "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/register": "^7.17.0",
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.29.1",
     "cors": "^2.8.5",
     "datauri": "^4.1.0",
-    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.4",
@@ -47,8 +42,14 @@
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/register": "^7.17.7",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
+    "dotenv": "^16.0.0",
     "mocha": "^9.2.0",
     "nodemon": "^2.0.15",
     "nyc": "^15.1.0"

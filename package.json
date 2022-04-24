@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "blog API",
   "main": "index.js",
+  "engines": {
+    "node": "16.13.1",
+    "npm": "8.1.2"
+  },
   "scripts": {
-    "start": "nodemon -e js,mjs,json,yml --exec babel-node  src/index.js",
+    "build-babel": "babel -d ./build ./src -s",
+    "clean": "rm -rf build && mkdir build",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/index.js",
+    "dev-start": "nodemon -e js,mjs,json,yml --exec babel-node  src/index.js",
     "test": "set NODE_ENV=test&& mocha --require @babel/register --timeout 10000 --exit",
     "coverage": "nyc npm run test"
   },

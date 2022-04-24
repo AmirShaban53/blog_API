@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import logger from '../middleware/logger';
 import dotenv from 'dotenv';
 dotenv.config();
-import User from './User';
+
 
 
 const devConfig = `postgres://${process.env.PG_USERNAME}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DEV_DATABASE}`

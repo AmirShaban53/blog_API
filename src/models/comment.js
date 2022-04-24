@@ -23,6 +23,7 @@ const Comment = sequelize.define('comment',{
 
 Post.hasMany(Comment, {onDelete: 'cascade'});
 Comment.belongsTo(Post);
+
 // User.hasMany(Comment);
 // Comment.belongsTo(User);
 // Comment.belongsTo(User);

@@ -10,8 +10,6 @@ describe('auth route', () => {
 
     before(async()=>{
         await User.sync({force: true});
-
-        
     })
 
     describe('POST /signup', () => {

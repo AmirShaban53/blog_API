@@ -33,7 +33,7 @@ npm install
 
 ```
 #to start development server
-npm run start
+npm run dev
 
 #to run unit tests and code coverage
 npm run coverage
